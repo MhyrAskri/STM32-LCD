@@ -54,11 +54,12 @@ void Lcd_init(Lcd_HandleTypeDef * lcd)
 	{
 		lcd_write_command(lcd, 0x33);
 		lcd_write_command(lcd, 0x32);
-		lcd_write_command(lcd, FUNCTION_SET | OPT_N);				// 4-bit mode
+		lcd_write_command(lcd, FUNCTION_SET | OPT_N);			// 4-bit mode
 	}
 	else
+	{
 		lcd_write_command(lcd, FUNCTION_SET | OPT_DL | OPT_N);
-
+	}
 
 	lcd_write_command(lcd, CLEAR_DISPLAY);						// Clear screen
 	lcd_write_command(lcd, DISPLAY_ON_OFF_CONTROL | OPT_D);		// Lcd-on, cursor-off, no-blink
@@ -110,12 +111,14 @@ void Lcd_clear(Lcd_HandleTypeDef * lcd)
 	HAL_Delay(2);
 }
 
-void Lcd_define_char(Lcd_HandleTypeDef * lcd, uint8_t code, uint8_t bitmap[]){
+void Lcd_define_char(Lcd_HandleTypeDef * lcd, uint8_t code, uint8_t bitmap[])
+{
 	lcd_write_command(lcd, SETCGRAM_ADDR + (code << 3));
-	for(uint8_t i=0;i<8;++i){
+
+	for(uint8_t i=0;i<8;++i)
+	{
 		lcd_write_data(lcd, bitmap[i]);
 	}
-
 }
 
 
@@ -137,7 +140,6 @@ void lcd_write_command(Lcd_HandleTypeDef * lcd, uint8_t command)
 	{
 		lcd_write(lcd, command, LCD_BYTE);
 	}
-
 }
 
 /**
@@ -156,7 +158,6 @@ void lcd_write_data(Lcd_HandleTypeDef * lcd, uint8_t data)
 	{
 		lcd_write(lcd, data, LCD_BYTE);
 	}
-
 }
 
 /**
