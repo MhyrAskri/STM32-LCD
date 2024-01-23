@@ -23,9 +23,9 @@ static void lcd_write(Lcd_HandleTypeDef * lcd, uint8_t data, uint8_t len);
  * Create new Lcd_HandleTypeDef and initialize the Lcd
  */
 Lcd_HandleTypeDef Lcd_create(
-		Lcd_PortType port[], Lcd_PinType pin[],
-		Lcd_PortType rs_port, Lcd_PinType rs_pin,
-		Lcd_PortType en_port, Lcd_PinType en_pin, Lcd_ModeTypeDef mode)
+	Lcd_PortType port[], Lcd_PinType pin[],
+	Lcd_PortType rs_port, Lcd_PinType rs_pin,
+	Lcd_PortType en_port, Lcd_PinType en_pin, Lcd_ModeTypeDef mode)
 {
 	Lcd_HandleTypeDef lcd;
 
@@ -101,22 +101,11 @@ void Lcd_cursor(Lcd_HandleTypeDef * lcd, uint8_t row, uint8_t col)
 	#endif
 }
 
-void Lcd_RS_pin(Lcd_HandleTypeDef * lcd, bool state)
-{
-	if(state)
-	{
-		HAL_GPIO_WritePin(lcd->rs_port, lcd->rs_pin, GPIO_PIN_SET);
-	}
-	else
-	{
-		HAL_GPIO_WritePin(lcd->rs_port, lcd->rs_pin, GPIO_PIN_RESET);
-	}
-}
-
 /**
  * Clear the screen
  */
-void Lcd_clear(Lcd_HandleTypeDef * lcd) {
+void Lcd_clear(Lcd_HandleTypeDef * lcd) 
+{
 	lcd_write_command(lcd, CLEAR_DISPLAY);
 	HAL_Delay(2);
 }
