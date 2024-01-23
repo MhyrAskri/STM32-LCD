@@ -1,5 +1,4 @@
-# STM32 LCD
-## How to use:
+## How to use
 In the first step, in the lcd.h file, in the includes section, change line 12 to the name of your micro.
 For example, if you use STM32F4 micro series, write stm32f4xx_hal.h instead of stm32f1xx_hal.h.
 Then include lcd.h in your project and run lcd through the following codes.
