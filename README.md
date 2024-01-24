@@ -4,7 +4,7 @@ For example, if you use STM32F4 micro series, write stm32f4xx_hal.h instead of s
 Then include lcd.h in your project and run lcd through the following codes.
 ```C
   Lcd_PortType ports[] = { GPIOA, GPIOA, GPIOA, GPIOA };
-  Lcd_PinType pins[] = {GPIO_PIN_4, GPIO_PIN_5, GPIO_PIN_6, GPIO_PIN_7};	
+  Lcd_PinType pins[] = { GPIO_PIN_4, GPIO_PIN_5, GPIO_PIN_6, GPIO_PIN_7 };	
   Lcd_HandleTypeDef lcd;
   lcd = Lcd_create(ports, pins, GPIOA, GPIO_PIN_1, GPIOA, GPIO_PIN_2, LCD_4_BIT_MODE);
 ```
