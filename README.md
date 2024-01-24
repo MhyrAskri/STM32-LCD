@@ -8,10 +8,10 @@ Then include lcd.h in your project and run lcd through the following codes.
   Lcd_HandleTypeDef lcd;
   lcd = Lcd_create(ports, pins, GPIOA, GPIO_PIN_1, GPIOA, GPIO_PIN_2, LCD_4_BIT_MODE);
 ```
->**Lcd_PortType ports[]** </br>
-- We use this line of code to write the ports related to the LCD data pins, which are D4 to D7 from left to right.
->**Lcd_PinType pins[]** </br>
-- We use this line of code to write the pins related to the LCD data pins, which are D4 to D7 from left to right.
+>**Lcd_PortType ports[] = { D4_GPIO_Port, D5_GPIO_Port, D6_GPIO_Port, D7_GPIO_Port };** </br>
+- We use this line of code to write the ports related to the LCD data pins.
+>**Lcd_PinType pins[] = { D4_Pin, D5_Pin, D6_Pin, D7_Pin };** </br>
+- We use this line of code to write the pins related to the LCD data pins.
 >**Lcd_HandleTypeDef lcd;** </br>
 - We use this line of code to create a variable of type Lcd_HandleTypeDef to use it where needed.
 >**lcd = Lcd_create(ports, pins, RS_GPIO_Port, RS_Pin, EN_GPIO_Port, EN_Pin, LCD_4_BIT_MODE);** </br>
